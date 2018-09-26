@@ -1,0 +1,9 @@
+E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\bin\Debug\imageCreater.exe
+E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\bin\Debug\imageCreater.pdb
+E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.Form1.resources
+E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.Properties.Resources.resources
+E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.csproj.GenerateResource.cache
+E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.csproj.CoreCompileInputs.cache
+E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.exe
+E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.pdb
+E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.csprojAssemblyReference.cache
