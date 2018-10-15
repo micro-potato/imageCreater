@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace imageCreater
 {
     public partial class Form1 : Form
     {
-        private int xCount, yCount, imageWidth, imageHeight,spawnCount,imageCount;
+        private int xCount, yCount, imageWidth, imageHeight,spawnCount,imageCount,paraDegree;
         private List<string> imageNames = new List<string>();
+        Stopwatch stopWatch;
 
         public Form1()
         {
@@ -25,6 +28,10 @@ namespace imageCreater
             
         }
 
+        /// <summary>
+        /// Extract images to joint big image
+        /// </summary>
+        /// <returns></returns>
         private List<string> GetImageNamesFormFolder()
         {
             string folderPath = Application.StartupPath + "\\gallery";
@@ -61,13 +68,45 @@ namespace imageCreater
 
         private void button1_Click(object sender, EventArgs e)
         {
+            stopWatch = new Stopwatch();
+            stopWatch.Start();
+            paraDegree = int.Parse(txtDegree.Text);
+
             xCount = int.Parse(txtXCount.Text);
             yCount = int.Parse(txtYcount.Text);
             imageWidth = int.Parse(txtWidth.Text);
             imageHeight = int.Parse(txtHeight.Text);
             spawnCount = int.Parse(textBox1.Text);
             imageCount = xCount * yCount;
-            for (int spawnIndex= 1; spawnIndex <= spawnCount; spawnIndex++)//everytime spawn a image
+
+            //TPL
+            List<Task> imageTasks = new List<Task>(paraDegree);
+            int dealCount = spawnCount / paraDegree;
+            for (int degreeIndex=1;degreeIndex<=paraDegree;degreeIndex++)
+            {
+                int startIndex = (degreeIndex-1)* dealCount + 1;
+                int endIndex = startIndex + dealCount - 1;
+                Task task = new Task(() => SpawnImages(startIndex, endIndex));
+                imageTasks.Add(task);
+                task.Start();
+            }
+            Task.WhenAll(imageTasks).ContinueWith(ShowElepseTime);
+
+            //.net4.0
+            //Task.WaitAll(imageTasks.ToArray());
+            //stopWatch.Stop();
+            //txtTime.Text = (stopWatch.ElapsedMilliseconds/1000).ToString();
+        }
+
+        private void ShowElepseTime(Task obj)
+        {
+            stopWatch.Stop();
+            txtTime.Text = (stopWatch.ElapsedMilliseconds / 1000).ToString();
+        }
+
+        private void SpawnImages(int startIndex, int endIndex)
+        {
+            for (int spawnIndex = startIndex; spawnIndex <= endIndex; spawnIndex++)//everytime spawn a image
             {
                 imageNames = GetImageNamesFormFolder();
                 //Init Graphics,image
@@ -86,14 +125,11 @@ namespace imageCreater
                     var xIndex = imageIndex % xCount == 0 ? xCount : imageIndex % xCount;
                     var imageX = (xIndex - 1) * imageWidth;
                     var imageY = (int)(yIndex - 1) * imageHeight;
-                    string imagePath = string.Format("{0}\\gallery\\{1}.JPEG",Application.StartupPath, imageNames[imageIndex - 1]);
+                    string imagePath = string.Format("{0}\\gallery\\{1}.JPEG", Application.StartupPath, imageNames[imageIndex - 1]);
 
-                    //test,print location info
-                    //string imageLocationInfo = string.Format("{0} {1} {2} {3}\n",imageX,imageY,imageWidth,imageHeight);
-                    //imageLocationBuilder.Append(imageLocationInfo);
                     //image info
                     string imageName = imageNames[imageIndex - 1].Split('.')[0];
-                    imageInfoBuilder.Append(string.Format("{0},",imageName));
+                    imageInfoBuilder.Append(string.Format("{0},", imageName));
 
                     DrawImage(resultGraphics, imagePath, imageX, imageY);
                 }
@@ -106,7 +142,6 @@ namespace imageCreater
                 string imageInfo = imageInfoBuilder.ToString().TrimEnd(',');
                 string infoPath = string.Format("{0}\\image\\{1}.txt", Application.StartupPath, spawnIndex.ToString());
                 File.WriteAllText(infoPath, imageInfo);
-                //File.WriteAllText(string.Format("{0}\\image\\{1}11.txt", Application.StartupPath, spawnIndex.ToString()), imageLocationBuilder.ToString());
             }
         }
 
@@ -116,7 +151,6 @@ namespace imageCreater
             Point rightupConner = new Point(imageWidth+imageX,imageY);
             Point leftfownConner=new Point(imageX, imageY+imageHeight);
             Point[] locationPoints = new Point[] { leftupConner, rightupConner, leftfownConner };
-            //graphics.DrawImage(Image.FromFile(imagePath), new Point(imageX, imageY));
             graphics.DrawImage(Image.FromFile(imagePath), locationPoints);
         }
     }

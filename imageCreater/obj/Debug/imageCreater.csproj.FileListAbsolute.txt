@@ -6,4 +6,4 @@ E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageC
 E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.csproj.CoreCompileInputs.cache
 E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.exe
 E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.pdb
-E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\obj\Debug\imageCreater.csprojAssemblyReference.cache
+E:\iwinad\project\2018\芯片性能展示_landy\imageCreater\imageCreater\imageCreater\bin\Debug\imageCreater.exe.config

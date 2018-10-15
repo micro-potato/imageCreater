@@ -39,12 +39,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.txtTime = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtDegree = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(113, 248);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(108, 48);
             this.button1.TabIndex = 0;
@@ -75,7 +79,7 @@
             // txtWidth
             // 
             this.txtWidth.Location = new System.Drawing.Point(197, 45);
-            this.txtWidth.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtWidth.Margin = new System.Windows.Forms.Padding(4);
             this.txtWidth.Name = "txtWidth";
             this.txtWidth.Size = new System.Drawing.Size(132, 25);
             this.txtWidth.TabIndex = 3;
@@ -84,7 +88,7 @@
             // txtHeight
             // 
             this.txtHeight.Location = new System.Drawing.Point(197, 82);
-            this.txtHeight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtHeight.Margin = new System.Windows.Forms.Padding(4);
             this.txtHeight.Name = "txtHeight";
             this.txtHeight.Size = new System.Drawing.Size(132, 25);
             this.txtHeight.TabIndex = 4;
@@ -93,7 +97,7 @@
             // txtYcount
             // 
             this.txtYcount.Location = new System.Drawing.Point(197, 161);
-            this.txtYcount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtYcount.Margin = new System.Windows.Forms.Padding(4);
             this.txtYcount.Name = "txtYcount";
             this.txtYcount.Size = new System.Drawing.Size(132, 25);
             this.txtYcount.TabIndex = 8;
@@ -102,7 +106,7 @@
             // txtXCount
             // 
             this.txtXCount.Location = new System.Drawing.Point(197, 124);
-            this.txtXCount.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtXCount.Margin = new System.Windows.Forms.Padding(4);
             this.txtXCount.Name = "txtXCount";
             this.txtXCount.Size = new System.Drawing.Size(132, 25);
             this.txtXCount.TabIndex = 7;
@@ -131,11 +135,11 @@
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(197, 195);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(132, 25);
             this.textBox1.TabIndex = 10;
-            this.textBox1.Text = "1";
+            this.textBox1.Text = "20";
             // 
             // label5
             // 
@@ -147,11 +151,53 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "SpawnCount:";
             // 
+            // txtTime
+            // 
+            this.txtTime.Location = new System.Drawing.Point(491, 197);
+            this.txtTime.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTime.Name = "txtTime";
+            this.txtTime.Size = new System.Drawing.Size(91, 25);
+            this.txtTime.TabIndex = 12;
+            this.txtTime.Text = "1";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(342, 200);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(79, 15);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "UsedTime:";
+            // 
+            // txtDegree
+            // 
+            this.txtDegree.Location = new System.Drawing.Point(491, 161);
+            this.txtDegree.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDegree.Name = "txtDegree";
+            this.txtDegree.Size = new System.Drawing.Size(91, 25);
+            this.txtDegree.TabIndex = 14;
+            this.txtDegree.Text = "1";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(342, 164);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(135, 15);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "parallel degree:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(595, 310);
+            this.Controls.Add(this.txtDegree);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtTime);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtYcount);
@@ -163,7 +209,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -185,6 +231,10 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtTime;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtDegree;
+        private System.Windows.Forms.Label label7;
     }
 }
 
